@@ -87,6 +87,7 @@
         .notification-badge {
             position: relative;
             font-size: 1.2rem;
+            cursor: pointer;
         }
         
         .badge {
@@ -223,115 +224,210 @@
             opacity: 0.9;
         }
         
-        /* Upload Section */
-        .upload-area {
+        /* Form Elements */
+        .form-section {
+            margin-bottom: 25px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border 0.3s;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+        }
+        
+        select.form-control {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23333' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 15px center;
+            background-size: 12px;
+            padding-right: 40px;
+        }
+        
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+        
+        .checkbox-label input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+        
+        /* Workshop Capacity */
+        .capacity-indicator {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        
+        .capacity-slider {
+            flex-grow: 1;
+            height: 8px;
+            background-color: #e0e0e0;
+            border-radius: 4px;
+            position: relative;
+        }
+        
+        .capacity-fill {
+            position: absolute;
+            height: 100%;
+            background: linear-gradient(to right, #27ae60, #f39c12);
+            border-radius: 4px;
+        }
+        
+        .capacity-value {
+            font-weight: bold;
+            color: var(--primary);
+            min-width: 60px;
+            text-align: center;
+        }
+        
+        /* FICA Upload */
+        .fica-docs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .fica-card {
             border: 2px dashed #ddd;
-            border-radius: 10px;
-            padding: 40px 20px;
+            border-radius: 8px;
+            padding: 20px;
             text-align: center;
             cursor: pointer;
             transition: all 0.3s;
-            margin-bottom: 20px;
         }
         
-        .upload-area:hover {
+        .fica-card:hover {
             border-color: var(--secondary);
             background-color: rgba(52, 152, 219, 0.05);
         }
         
-        .upload-icon {
-            font-size: 3rem;
+        .fica-card.completed {
+            border-color: var(--success);
+            background-color: rgba(39, 174, 96, 0.05);
+        }
+        
+        .fica-icon {
+            font-size: 2rem;
             color: var(--secondary);
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
         
-        .upload-btn {
-            background-color: var(--secondary);
-            color: white;
-            border: none;
-            padding: 10px 25px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: 600;
-            margin-top: 15px;
-            transition: all 0.3s;
+        .fica-card.completed .fica-icon {
+            color: var(--success);
         }
         
-        .upload-btn:hover {
-            background-color: #2980b9;
+        /* OTP Authentication */
+        .otp-container {
+            max-width: 400px;
+            margin: 20px auto;
+            text-align: center;
         }
         
-        /* Validation Progress */
-        .validation-container {
-            background-color: #f8f9fa;
-            border-radius: 8px;
-            padding: 15px;
-            margin-bottom: 20px;
-        }
-        
-        .validation-step {
+        .otp-inputs {
             display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-            padding: 10px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
         }
         
-        .step-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
+        .otp-input {
+            width: 50px;
+            height: 60px;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+        }
+        
+        .otp-input:focus {
+            border-color: var(--secondary);
+            outline: none;
+        }
+        
+        /* Vehicle Details */
+        .vehicle-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .vehicle-image {
+            background-color: #f0f0f0;
+            border-radius: 8px;
+            height: 200px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 15px;
-            font-weight: bold;
-            color: white;
+            overflow: hidden;
         }
         
-        .step-icon.completed {
-            background-color: var(--success);
+        .vehicle-image img {
+            max-width: 100%;
+            max-height: 100%;
         }
         
-        .step-icon.pending {
-            background-color: var(--warning);
+        /* Service Quotation */
+        .quotation-items {
+            margin: 20px 0;
         }
         
-        .step-icon.failed {
-            background-color: var(--danger);
-        }
-        
-        .step-info {
-            flex-grow: 1;
-        }
-        
-        .step-name {
-            font-weight: 600;
-            margin-bottom: 5px;
-        }
-        
-        .step-status {
-            font-size: 0.9rem;
-            color: var(--gray);
-        }
-        
-        /* SLA Timer */
-        .sla-timer {
-            background: linear-gradient(135deg, #ff9a00, #ff6a00);
-            color: white;
-            padding: 15px;
-            border-radius: 8px;
+        .quotation-item {
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            margin-bottom: 20px;
+            padding: 15px;
+            border-bottom: 1px solid #eee;
         }
         
-        .timer-value {
-            font-size: 1.8rem;
-            font-weight: 700;
+        .quotation-item:last-child {
+            border-bottom: none;
+        }
+        
+        .quotation-total {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-align: right;
         }
         
         /* Claims Table */
@@ -382,39 +478,44 @@
             color: #721c24;
         }
         
-        /* Compliance Dashboard */
-        .compliance-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-        }
-        
-        .compliance-card {
-            padding: 20px;
-            border-radius: 8px;
-            background-color: white;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-        }
-        
-        .compliance-status {
-            display: flex;
+        /* Buttons */
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-flex;
             align-items: center;
-            gap: 10px;
-            margin-top: 10px;
+            gap: 8px;
         }
         
-        .status-indicator {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
+        .btn-primary {
+            background-color: var(--secondary);
+            color: white;
         }
         
-        .status-indicator.active {
+        .btn-primary:hover {
+            background-color: #2980b9;
+        }
+        
+        .btn-success {
             background-color: var(--success);
+            color: white;
         }
         
-        .status-indicator.pending {
+        .btn-success:hover {
+            background-color: #219653;
+        }
+        
+        .btn-warning {
             background-color: var(--warning);
+            color: white;
+        }
+        
+        .btn-warning:hover {
+            background-color: #e67e22;
         }
         
         /* Modal */
@@ -436,6 +537,8 @@
             border-radius: 10px;
             width: 90%;
             max-width: 500px;
+            max-height: 90vh;
+            overflow-y: auto;
             padding: 30px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
@@ -455,40 +558,22 @@
             color: var(--gray);
         }
         
-        .form-group {
-            margin-bottom: 20px;
+        /* Progress Bar */
+        .progress-container {
+            margin: 20px 0;
         }
         
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-        }
-        
-        .form-control {
-            width: 100%;
-            padding: 10px 15px;
-            border: 1px solid #ddd;
+        .progress-bar {
+            height: 10px;
+            background-color: #e0e0e0;
             border-radius: 5px;
-            font-size: 1rem;
+            overflow: hidden;
         }
         
-        .btn {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s;
-        }
-        
-        .btn-primary {
-            background-color: var(--secondary);
-            color: white;
-        }
-        
-        .btn-primary:hover {
-            background-color: #2980b9;
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(to right, #3498db, #2ecc71);
+            transition: width 0.3s ease;
         }
         
         /* Responsive */
@@ -512,6 +597,10 @@
             .stats-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
+            
+            .vehicle-details {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -525,10 +614,13 @@
             </div>
             <div class="merchant-info">
                 <div class="merchant-name">AutoFix Garage (SMME Tier 2)</div>
-                <div class="notification-badge">
+                <div class="notification-badge" onclick="toggleNotifications()">
                     <i class="fas fa-bell"></i>
                     <span class="badge">3</span>
                 </div>
+                <button class="btn btn-warning" onclick="logout()">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
             </div>
         </div>
     </header>
@@ -545,15 +637,27 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#submission" class="nav-link">
-                        <span class="nav-icon"><i class="fas fa-upload"></i></span>
-                        <span>Submit Documents</span>
+                    <a href="#specialization" class="nav-link">
+                        <span class="nav-icon"><i class="fas fa-tools"></i></span>
+                        <span>Workshop Specialization</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#validation" class="nav-link">
-                        <span class="nav-icon"><i class="fas fa-check-circle"></i></span>
-                        <span>Validation Status</span>
+                    <a href="#fica" class="nav-link">
+                        <span class="nav-icon"><i class="fas fa-file-contract"></i></span>
+                        <span>FICA Compliance</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#vehicle" class="nav-link">
+                        <span class="nav-icon"><i class="fas fa-car"></i></span>
+                        <span>Vehicle Details</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#quotation" class="nav-link">
+                        <span class="nav-icon"><i class="fas fa-file-invoice-dollar"></i></span>
+                        <span>Service Quotation</span>
                     </a>
                 </li>
                 <li class="nav-item">
@@ -563,15 +667,9 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#disputes" class="nav-link">
-                        <span class="nav-icon"><i class="fas fa-comments"></i></span>
-                        <span>Dispute Resolution</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#performance" class="nav-link">
-                        <span class="nav-icon"><i class="fas fa-chart-line"></i></span>
-                        <span>Performance Dashboard</span>
+                    <a href="#profile" class="nav-link">
+                        <span class="nav-icon"><i class="fas fa-user-cog"></i></span>
+                        <span>Profile & Settings</span>
                     </a>
                 </li>
             </ul>
@@ -609,51 +707,324 @@
                 </div>
             </div>
             
-            <!-- Document Submission -->
-            <div class="card" id="submissionSection">
+            <!-- 1. Workshop Specialization -->
+            <div class="card" id="specializationSection">
                 <div class="card-header">
-                    <h2 class="card-title">Submit Documents</h2>
-                    <button class="btn btn-primary" id="uploadDocumentBtn">
-                        <i class="fas fa-plus"></i> New Submission
+                    <h2 class="card-title">Workshop Specialization</h2>
+                    <span class="status-badge approved">Active</span>
+                </div>
+                
+                <div class="form-section">
+                    <div class="form-group">
+                        <label>Areas of Specialization (Select all that apply)</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="specialization" value="tyres" checked>
+                                <span>Tyres</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="specialization" value="engines" checked>
+                                <span>Engines</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="specialization" value="car_wash">
+                                <span>Car Wash</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="specialization" value="tlb" checked>
+                                <span>TLB</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="specialization" value="body_work" checked>
+                                <span>Body Work</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="specialization" value="windscreen">
+                                <span>Windscreen</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="specialization" value="electrical">
+                                <span>Electrical</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="specialization" value="brakes">
+                                <span>Brakes</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="specialization" value="suspension">
+                                <span>Suspension</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="specialization" value="aircon">
+                                <span>Air Conditioning</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <!-- 2. Workshop Capacity -->
+                    <div class="form-group">
+                        <label>Workshop Capacity (Vehicles per day)</label>
+                        <div class="capacity-indicator">
+                            <span>1</span>
+                            <div class="capacity-slider">
+                                <div class="capacity-fill" id="capacityFill" style="width: 70%;"></div>
+                            </div>
+                            <span>20</span>
+                            <div class="capacity-value" id="capacityValue">14 vehicles</div>
+                        </div>
+                        <input type="range" id="capacitySlider" min="1" max="20" value="14" 
+                               class="form-control" style="margin-top: 10px;"
+                               oninput="updateCapacity(this.value)">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Average Repair Time</label>
+                        <select class="form-control">
+                            <option>Same Day Service</option>
+                            <option selected>1-2 Days</option>
+                            <option>3-5 Days</option>
+                            <option>1 Week+</option>
+                        </select>
+                    </div>
+                    
+                    <button class="btn btn-success" onclick="saveSpecialization()">
+                        <i class="fas fa-save"></i> Save Specialization
+                    </button>
+                </div>
+            </div>
+            
+            <!-- 3. FICA Compliance Documents -->
+            <div class="card" id="ficaSection">
+                <div class="card-header">
+                    <h2 class="card-title">FICA Compliance Documents</h2>
+                    <span class="status-badge pending">2 Pending</span>
+                </div>
+                
+                <div class="progress-container">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                        <span>Compliance Status</span>
+                        <span id="ficaProgress">70% Complete</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="ficaProgressFill" style="width: 70%;"></div>
+                    </div>
+                </div>
+                
+                <div class="fica-docs">
+                    <div class="fica-card completed" onclick="uploadDocument('company_registration')">
+                        <div class="fica-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <h4>Company Registration</h4>
+                        <p>Uploaded: 15 Oct 2023</p>
+                        <small>Status: <span style="color: var(--success);">Verified</span></small>
+                    </div>
+                    
+                    <div class="fica-card completed" onclick="uploadDocument('tax_certificate')">
+                        <div class="fica-icon">
+                            <i class="fas fa-receipt"></i>
+                        </div>
+                        <h4>Tax Certificate</h4>
+                        <p>Uploaded: 18 Oct 2023</p>
+                        <small>Status: <span style="color: var(--success);">Verified</span></small>
+                    </div>
+                    
+                    <div class="fica-card" onclick="uploadDocument('bank_confirmation')">
+                        <div class="fica-icon">
+                            <i class="fas fa-university"></i>
+                        </div>
+                        <h4>Bank Confirmation</h4>
+                        <p>Required for payment processing</p>
+                        <small>Status: <span style="color: var(--warning);">Pending</span></small>
+                    </div>
+                    
+                    <div class="fica-card" onclick="uploadDocument('director_ids')">
+                        <div class="fica-icon">
+                            <i class="fas fa-id-card"></i>
+                        </div>
+                        <h4>Director IDs</h4>
+                        <p>All directors must be verified</p>
+                        <small>Status: <span style="color: var(--warning);">Pending</span></small>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 20px;">
+                    <button class="btn btn-primary" onclick="openFICAUpload()">
+                        <i class="fas fa-upload"></i> Upload New Document
+                    </button>
+                </div>
+            </div>
+            
+            <!-- 5. Vehicle Details Capture -->
+            <div class="card" id="vehicleSection">
+                <div class="card-header">
+                    <h2 class="card-title">Vehicle Details Capture</h2>
+                </div>
+                
+                <div class="vehicle-details">
+                    <div>
+                        <div class="form-group">
+                            <label>Vehicle Registration Number</label>
+                            <input type="text" class="form-control" id="regNumber" 
+                                   placeholder="CA 123-456" oninput="validateRegNumber()">
+                            <small id="regError" style="color: var(--danger); display: none;">
+                                Invalid registration format
+                            </small>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>VIN (Vehicle Identification Number)</label>
+                            <input type="text" class="form-control" id="vinNumber" 
+                                   placeholder="1HGCM82633A123456" maxlength="17">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Vehicle Make</label>
+                            <select class="form-control" id="vehicleMake">
+                                <option value="">Select Make</option>
+                                <option>Toyota</option>
+                                <option>Volkswagen</option>
+                                <option>Ford</option>
+                                <option>BMW</option>
+                                <option>Mercedes-Benz</option>
+                                <option>Nissan</option>
+                                <option>Hyundai</option>
+                                <option>Isuzu</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Vehicle Model</label>
+                            <input type="text" class="form-control" id="vehicleModel" 
+                                   placeholder="Corolla, Golf, etc.">
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="form-group">
+                            <label>Year of Manufacture</label>
+                            <input type="number" class="form-control" id="manufactureYear" 
+                                   min="1990" max="2024" value="2020">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Mileage (km)</label>
+                            <input type="number" class="form-control" id="vehicleMileage" 
+                                   placeholder="e.g., 75000">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Reported Fault/Issue</label>
+                            <textarea class="form-control" id="vehicleFault" rows="4" 
+                                      placeholder="Describe the problem reported by the customer..."></textarea>
+                        </div>
+                        
+                        <div class="vehicle-image">
+                            <i class="fas fa-car" style="font-size: 4rem; color: #ccc;"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="text-align: right; margin-top: 20px;">
+                    <button class="btn btn-primary" onclick="captureVehicleDetails()">
+                        <i class="fas fa-save"></i> Save Vehicle Details
+                    </button>
+                </div>
+            </div>
+            
+            <!-- 6. Service Quotation -->
+            <div class="card" id="quotationSection">
+                <div class="card-header">
+                    <h2 class="card-title">Service Quotation</h2>
+                    <button class="btn btn-warning" onclick="generateQuotePDF()">
+                        <i class="fas fa-file-pdf"></i> Generate PDF
                     </button>
                 </div>
                 
-                <div class="upload-area" id="uploadArea">
-                    <div class="upload-icon">
-                        <i class="fas fa-cloud-upload-alt"></i>
+                <div class="vehicle-details" style="margin-bottom: 20px;">
+                    <div>
+                        <h4>Vehicle Information</h4>
+                        <p><strong>Registration:</strong> CA 123-456</p>
+                        <p><strong>VIN:</strong> 1HGCM82633A123456</p>
+                        <p><strong>Make/Model:</strong> Toyota Corolla (2020)</p>
                     </div>
-                    <h3>Drag & Drop Documents Here</h3>
-                    <p>Supported formats: PDF, JPEG, PNG, DOCX</p>
-                    <p class="upload-hint">Or click to browse files</p>
-                    <input type="file" id="fileInput" style="display: none;" multiple>
-                    <button class="upload-btn" onclick="document.getElementById('fileInput').click()">
-                        <i class="fas fa-folder-open"></i> Browse Files
-                    </button>
+                    <div>
+                        <h4>Customer Information</h4>
+                        <p><strong>Name:</strong> John Smith</p>
+                        <p><strong>Contact:</strong> 083 123 4567</p>
+                        <p><strong>Insurance:</strong> Santam (Policy #: SA789456)</p>
+                    </div>
                 </div>
                 
-                <div class="validation-container" id="validationContainer" style="display: none;">
-                    <h3>3-Point Validation Progress</h3>
-                    <div class="validation-step">
-                        <div class="step-icon pending" id="step1Icon">1</div>
-                        <div class="step-info">
-                            <div class="step-name">Job Card Match</div>
-                            <div class="step-status" id="step1Status">Validating...</div>
+                <div class="form-group">
+                    <label>Add Service/Part</label>
+                    <div style="display: flex; gap: 10px;">
+                        <input type="text" class="form-control" id="newItem" placeholder="Service or part description">
+                        <input type="number" class="form-control" style="width: 100px;" id="newQuantity" placeholder="Qty" value="1">
+                        <input type="number" class="form-control" style="width: 150px;" id="newPrice" placeholder="Price (R)">
+                        <button class="btn btn-success" onclick="addQuotationItem()">
+                            <i class="fas fa-plus"></i> Add
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="quotation-items">
+                    <div class="quotation-item">
+                        <div>
+                            <strong>Labour - Engine Diagnostic</strong>
+                            <p>2 hours @ R450/hour</p>
+                        </div>
+                        <div style="text-align: right;">
+                            <div>R 900.00</div>
+                            <button class="btn" style="padding: 2px 8px; font-size: 0.8rem;" onclick="removeItem(0)">
+                                <i class="fas fa-times"></i>
+                            </button>
                         </div>
                     </div>
-                    <div class="validation-step">
-                        <div class="step-icon pending" id="step2Icon">2</div>
-                        <div class="step-info">
-                            <div class="step-name">Part Number Verification</div>
-                            <div class="step-status" id="step2Status">Pending</div>
+                    
+                    <div class="quotation-item">
+                        <div>
+                            <strong>Oil Filter</strong>
+                            <p>Part #: OF-5678</p>
+                        </div>
+                        <div style="text-align: right;">
+                            <div>R 150.00</div>
+                            <button class="btn" style="padding: 2px 8px; font-size: 0.8rem;" onclick="removeItem(1)">
+                                <i class="fas fa-times"></i>
+                            </button>
                         </div>
                     </div>
-                    <div class="validation-step">
-                        <div class="step-icon pending" id="step3Icon">3</div>
-                        <div class="step-info">
-                            <div class="step-name">Rate Card Compliance</div>
-                            <div class="step-status" id="step3Status">Pending</div>
+                    
+                    <div class="quotation-item">
+                        <div>
+                            <strong>Engine Oil (5W-30)</strong>
+                            <p>5 Liters</p>
+                        </div>
+                        <div style="text-align: right;">
+                            <div>R 450.00</div>
+                            <button class="btn" style="padding: 2px 8px; font-size: 0.8rem;" onclick="removeItem(2)">
+                                <i class="fas fa-times"></i>
+                            </button>
                         </div>
                     </div>
+                </div>
+                
+                <div class="quotation-total">
+                    <div>Subtotal: R 1,500.00</div>
+                    <div>VAT (15%): R 225.00</div>
+                    <div style="font-size: 1.5rem; margin-top: 10px;">Total: R 1,725.00</div>
+                </div>
+                
+                <div style="display: flex; gap: 10px; margin-top: 20px; justify-content: flex-end;">
+                    <button class="btn" onclick="saveDraft()">
+                        <i class="fas fa-save"></i> Save Draft
+                    </button>
+                    <button class="btn btn-warning" onclick="sendToCustomer()">
+                        <i class="fas fa-paper-plane"></i> Send to Customer
+                    </button>
+                    <button class="btn btn-success" onclick="submitToDigitalHub()">
+                        <i class="fas fa-share-square"></i> Submit to Digital Hub
+                    </button>
                 </div>
             </div>
             
@@ -671,30 +1042,30 @@
                         <thead>
                             <tr>
                                 <th>Claim ID</th>
-                                <th>Date</th>
-                                <th>Customer</th>
+                                <th>Vehicle</th>
+                                <th>Service</th>
                                 <th>Amount</th>
                                 <th>Status</th>
-                                <th>Validation</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td>CL-2023-0456</td>
-                                <td>2023-11-15</td>
-                                <td>John Smith</td>
+                                <td>Toyota Corolla</td>
+                                <td>Engine Service</td>
                                 <td>R 4,850.00</td>
                                 <td><span class="status-badge approved">Approved</span></td>
                                 <td>
                                     <button class="btn" onclick="showValidationLogic('CL-2023-0456')" style="font-size: 0.9rem; padding: 5px 10px;">
-                                        <i class="fas fa-info-circle"></i> View Logic
+                                        <i class="fas fa-info-circle"></i> Details
                                     </button>
                                 </td>
                             </tr>
                             <tr>
                                 <td>CL-2023-0457</td>
-                                <td>2023-11-16</td>
-                                <td>Sarah Johnson</td>
+                                <td>VW Golf</td>
+                                <td>Brake Replacement</td>
                                 <td>R 7,230.00</td>
                                 <td><span class="status-badge queried">Queried</span></td>
                                 <td>
@@ -703,361 +1074,430 @@
                                     </button>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>CL-2023-0458</td>
-                                <td>2023-11-17</td>
-                                <td>Mike Williams</td>
-                                <td>R 3,450.00</td>
-                                <td><span class="status-badge pending">Pending</span></td>
-                                <td>
-                                    <button class="btn" style="font-size: 0.9rem; padding: 5px 10px; background-color: #f8f9fa;" disabled>
-                                        <i class="fas fa-clock"></i> In Progress
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>CL-2023-0459</td>
-                                <td>2023-11-18</td>
-                                <td>Emma Brown</td>
-                                <td>R 12,500.00</td>
-                                <td><span class="status-badge pending">Tier 2 Review</span></td>
-                                <td>
-                                    <button class="btn" onclick="showTieredRouting('CL-2023-0459')" style="font-size: 0.9rem; padding: 5px 10px;">
-                                        <i class="fas fa-external-link-alt"></i> Escalated
-                                    </button>
-                                </td>
-                            </tr>
                         </tbody>
                     </table>
-                </div>
-            </div>
-            
-            <!-- Compliance Dashboard -->
-            <div class="card">
-                <div class="card-header">
-                    <h2 class="card-title">Merchant Compliance Dashboard</h2>
-                </div>
-                
-                <div class="compliance-grid">
-                    <div class="compliance-card">
-                        <h3>SMME Tier Status</h3>
-                        <p>Tier 2 - Established Small Business</p>
-                        <div class="compliance-status">
-                            <div class="status-indicator active"></div>
-                            <span>Active in Registry</span>
-                        </div>
-                    </div>
-                    
-                    <div class="compliance-card">
-                        <h3>RMI Approval</h3>
-                        <p>RMI Certified Workshop</p>
-                        <div class="compliance-status">
-                            <div class="status-indicator active"></div>
-                            <span>Valid until 2024-12-31</span>
-                        </div>
-                    </div>
-                    
-                    <div class="compliance-card">
-                        <h3>Geographic Coverage</h3>
-                        <p>Johannesburg Metro Region</p>
-                        <div class="compliance-status">
-                            <div class="status-indicator active"></div>
-                            <span>Service Area Approved</span>
-                        </div>
-                    </div>
-                    
-                    <div class="compliance-card">
-                        <h3>Performance Rating</h3>
-                        <p>4.2/5.0 Average</p>
-                        <div class="compliance-status">
-                            <div class="status-indicator active"></div>
-                            <span>Above Average</span>
-                        </div>
-                    </div>
                 </div>
             </div>
         </main>
     </div>
     
-    <!-- Upload Modal -->
-    <div class="modal" id="uploadModal">
+    <!-- 4. Authentication Modal -->
+    <div class="modal" id="authModal">
         <div class="modal-content">
             <div class="modal-header">
-                <h2>Upload New Documents</h2>
+                <h2>Two-Factor Authentication</h2>
                 <button class="close-modal" onclick="closeModal()">&times;</button>
             </div>
-            <form id="uploadForm">
-                <div class="form-group">
-                    <label for="claimId">Claim/Job Card Number</label>
-                    <input type="text" id="claimId" class="form-control" placeholder="e.g., CL-2023-XXXX" required>
+            
+            <div class="otp-container">
+                <p>For security, please verify your identity</p>
+                
+                <div style="margin: 20px 0; padding: 15px; background-color: #f8f9fa; border-radius: 8px;">
+                    <p><strong>Verification Method:</strong></p>
+                    <div style="display: flex; gap: 10px; margin-top: 10px;">
+                        <button class="btn" onclick="sendOTP('sms')" style="flex: 1;">
+                            <i class="fas fa-mobile-alt"></i> SMS to 079***9357
+                        </button>
+                        <button class="btn" onclick="sendOTP('email')" style="flex: 1;">
+                            <i class="fas fa-envelope"></i> Email
+                        </button>
+                    </div>
                 </div>
                 
+                <div id="otpSection" style="display: none;">
+                    <p>Enter the 6-digit code sent to your device:</p>
+                    <div class="otp-inputs">
+                        <input type="text" class="otp-input" maxlength="1" oninput="moveToNext(this, 1)">
+                        <input type="text" class="otp-input" maxlength="1" oninput="moveToNext(this, 2)">
+                        <input type="text" class="otp-input" maxlength="1" oninput="moveToNext(this, 3)">
+                        <input type="text" class="otp-input" maxlength="1" oninput="moveToNext(this, 4)">
+                        <input type="text" class="otp-input" maxlength="1" oninput="moveToNext(this, 5)">
+                        <input type="text" class="otp-input" maxlength="1" oninput="moveToNext(this, 6)">
+                    </div>
+                    
+                    <div style="margin: 20px 0;">
+                        <button class="btn btn-primary" onclick="verifyOTP()" style="width: 100%;">
+                            Verify & Continue
+                        </button>
+                    </div>
+                    
+                    <p style="font-size: 0.9rem; color: var(--gray);">
+                        Didn't receive code? <a href="#" onclick="resendOTP()">Resend</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- FICA Upload Modal -->
+    <div class="modal" id="ficaModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Upload FICA Document</h2>
+                <button class="close-modal" onclick="closeModal()">&times;</button>
+            </div>
+            
+            <form id="ficaUploadForm">
                 <div class="form-group">
-                    <label for="documentType">Document Type</label>
-                    <select id="documentType" class="form-control" required>
+                    <label>Document Type</label>
+                    <select class="form-control" id="ficaDocType" required>
                         <option value="">Select document type</option>
-                        <option value="quotation">Quotation</option>
-                        <option value="jobcard">Job Card</option>
-                        <option value="invoice">Invoice</option>
-                        <option value="partlist">Parts List</option>
+                        <option value="bank_confirmation">Bank Confirmation Letter</option>
+                        <option value="director_ids">Director IDs</option>
+                        <option value="proof_address">Proof of Address</option>
+                        <option value="company_docs">Company Registration Documents</option>
+                        <option value="tax_cert">Tax Compliance Certificate</option>
+                        <option value="other">Other</option>
                     </select>
                 </div>
                 
                 <div class="form-group">
-                    <label for="fileUpload">Select Files</label>
-                    <input type="file" id="fileUpload" class="form-control" multiple required>
+                    <label>Document Upload</label>
+                    <input type="file" class="form-control" id="ficaFile" accept=".pdf,.jpg,.jpeg,.png" required>
+                    <small>Accepted formats: PDF, JPG, PNG (Max 5MB)</small>
+                </div>
+                
+                <div class="form-group">
+                    <label>Expiry Date (if applicable)</label>
+                    <input type="date" class="form-control" id="ficaExpiry">
                 </div>
                 
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary" style="width: 100%;">
-                        <i class="fas fa-upload"></i> Upload to Digital Hub
+                        <i class="fas fa-upload"></i> Upload Document
                     </button>
                 </div>
             </form>
         </div>
     </div>
-    
-    <!-- Validation Logic Modal -->
-    <div class="modal" id="logicModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>Auditable Validation Logic</h2>
-                <button class="close-modal" onclick="closeModal()">&times;</button>
-            </div>
-            <div id="logicContent">
-                <!-- Dynamic content will be inserted here -->
-            </div>
-        </div>
-    </div>
 
     <script>
         // DOM Elements
-        const uploadModal = document.getElementById('uploadModal');
-        const logicModal = document.getElementById('logicModal');
-        const uploadArea = document.getElementById('uploadArea');
-        const validationContainer = document.getElementById('validationContainer');
-        const slaTimer = document.getElementById('slaTimer');
+        const authModal = document.getElementById('authModal');
+        const ficaModal = document.getElementById('ficaModal');
+        const otpSection = document.getElementById('otpSection');
+        const capacitySlider = document.getElementById('capacitySlider');
+        const capacityFill = document.getElementById('capacityFill');
+        const capacityValue = document.getElementById('capacityValue');
         
-        // Initialize SLA Timer
-        let minutes = 14;
-        let seconds = 32;
-        
-        function updateSLATimer() {
-            if (seconds === 0) {
-                if (minutes === 0) {
-                    // Timer completed
-                    slaTimer.innerHTML = "EXPIRED";
-                    slaTimer.style.color = "#e74c3c";
-                    return;
-                } else {
-                    minutes--;
-                    seconds = 59;
-                }
-            } else {
-                seconds--;
-            }
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize SLA Timer
+            startSLATimer();
             
-            slaTimer.innerHTML = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            // Check if authentication is required (simulate session check)
+            setTimeout(() => {
+                // For demo: Show auth modal after 2 seconds
+                // In real app, this would check session/token validity
+                if (window.location.hash === '#demo') {
+                    showAuthModal();
+                }
+            }, 2000);
+        });
+        
+        // 2. Workshop Capacity Slider
+        function updateCapacity(value) {
+            capacityFill.style.width = `${(value / 20) * 100}%`;
+            capacityValue.textContent = `${value} vehicle${value > 1 ? 's' : ''}`;
+            
+            // Update color based on capacity utilization
+            if (value <= 5) {
+                capacityFill.style.background = '#27ae60'; // Green
+            } else if (value <= 15) {
+                capacityFill.style.background = '#f39c12'; // Orange
+            } else {
+                capacityFill.style.background = '#e74c3c'; // Red
+            }
         }
         
-        setInterval(updateSLATimer, 1000);
+        // 1. Save Specialization
+        function saveSpecialization() {
+            const specializations = Array.from(document.querySelectorAll('input[name="specialization"]:checked'))
+                .map(cb => cb.value);
+            
+            const capacity = capacitySlider.value;
+            const repairTime = document.querySelector('select').value;
+            
+            // Simulate API call
+            showNotification(`Specialization saved: ${specializations.join(', ')}. Capacity: ${capacity} vehicles/day.`, 'success');
+        }
         
-        // Upload Document Button
-        document.getElementById('uploadDocumentBtn').addEventListener('click', function() {
-            uploadModal.style.display = 'flex';
-        });
+        // 3. FICA Document Upload
+        function openFICAUpload() {
+            ficaModal.style.display = 'flex';
+        }
         
-        // Upload Area Click
-        uploadArea.addEventListener('click', function() {
-            document.getElementById('fileInput').click();
-        });
+        function uploadDocument(docType) {
+            // In real app, this would open file picker
+            showNotification(`Ready to upload ${docType.replace('_', ' ')} document`, 'info');
+            openFICAUpload();
+        }
         
-        // File Input Change
-        document.getElementById('fileInput').addEventListener('change', function(e) {
-            if (e.target.files.length > 0) {
-                simulateValidation();
+        // FICA Upload Form
+        document.getElementById('ficaUploadForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const docType = document.getElementById('ficaDocType').value;
+            const fileInput = document.getElementById('ficaFile');
+            
+            if (fileInput.files.length > 0) {
+                const fileName = fileInput.files[0].name;
+                
+                // Simulate upload
+                setTimeout(() => {
+                    showNotification(`${docType.replace('_', ' ')} uploaded successfully: ${fileName}`, 'success');
+                    
+                    // Update progress
+                    updateFICAProgress();
+                    
+                    closeModal();
+                    document.getElementById('ficaUploadForm').reset();
+                }, 1500);
             }
         });
         
-        // Upload Form Submission
-        document.getElementById('uploadForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            closeModal();
-            simulateValidation();
-        });
+        function updateFICAProgress() {
+            // Simulate progress update
+            const progress = 85; // New progress percentage
+            const progressFill = document.getElementById('ficaProgressFill');
+            const progressText = document.getElementById('ficaProgress');
+            
+            progressFill.style.width = `${progress}%`;
+            progressText.textContent = `${progress}% Complete`;
+            
+            // Update badge if complete
+            if (progress >= 100) {
+                document.querySelector('#ficaSection .status-badge').className = 'status-badge approved';
+                document.querySelector('#ficaSection .status-badge').textContent = 'Complete';
+            }
+        }
         
-        // Simulate 3-Point Validation
-        function simulateValidation() {
-            // Show validation container
-            validationContainer.style.display = 'block';
+        // 4. Authentication System
+        function showAuthModal() {
+            authModal.style.display = 'flex';
+        }
+        
+        function sendOTP(method) {
+            // Simulate sending OTP
+            showNotification(`Verification code sent via ${method.toUpperCase()}`, 'info');
             
-            // Reset all steps
-            const stepIcons = ['step1Icon', 'step2Icon', 'step3Icon'];
-            const stepStatuses = ['step1Status', 'step2Status', 'step3Status'];
+            // Show OTP input section
+            otpSection.style.display = 'block';
             
-            stepIcons.forEach(id => {
-                const icon = document.getElementById(id);
-                icon.className = 'step-icon pending';
-            });
-            
-            stepStatuses.forEach(id => {
-                const status = document.getElementById(id);
-                status.textContent = 'Validating...';
-            });
-            
-            // Simulate step 1 validation
-            setTimeout(() => {
-                document.getElementById('step1Icon').className = 'step-icon completed';
-                document.getElementById('step1Status').textContent = '✓ Job card matches system record';
-                
-                // Step 2 after delay
+            // Auto-fill demo OTP for testing
+            if (window.location.hash === '#demo') {
                 setTimeout(() => {
-                    document.getElementById('step2Icon').className = 'step-icon completed';
-                    document.getElementById('step2Status').textContent = '✓ Part numbers verified against OEM database';
-                    
-                    // Step 3 after delay
-                    setTimeout(() => {
-                        const isCompliant = Math.random() > 0.3; // 70% chance of compliance
-                        
-                        if (isCompliant) {
-                            document.getElementById('step3Icon').className = 'step-icon completed';
-                            document.getElementById('step3Status').textContent = '✓ Rates comply with contract agreements';
-                            
-                            // Show success message
-                            setTimeout(() => {
-                                alert('✅ Validation complete! Document has been approved and submitted to the Digital Hub.');
-                                validationContainer.style.display = 'none';
-                            }, 500);
-                        } else {
-                            document.getElementById('step3Icon').className = 'step-icon failed';
-                            document.getElementById('step3Status').textContent = '✗ Rate exceeds contracted maximum';
-                            
-                            // Show query message
-                            setTimeout(() => {
-                                alert('⚠ Rate card discrepancy detected. Please check the Dispute Resolution portal for details.');
-                                validationContainer.style.display = 'none';
-                            }, 500);
-                        }
-                    }, 1500);
-                }, 1500);
+                    const inputs = document.querySelectorAll('.otp-input');
+                    const demoCode = '123456';
+                    inputs.forEach((input, index) => {
+                        input.value = demoCode[index];
+                    });
+                }, 500);
+            }
+        }
+        
+        function moveToNext(input, nextIndex) {
+            if (input.value.length === 1) {
+                if (nextIndex <= 6) {
+                    const nextInput = document.querySelectorAll('.otp-input')[nextIndex - 1];
+                    if (nextInput) nextInput.focus();
+                }
+            }
+        }
+        
+        function verifyOTP() {
+            const inputs = document.querySelectorAll('.otp-input');
+            const otp = Array.from(inputs).map(input => input.value).join('');
+            
+            if (otp.length === 6) {
+                // Simulate OTP verification
+                showNotification('Authentication successful!', 'success');
+                closeModal();
+                
+                // Clear OTP inputs
+                inputs.forEach(input => input.value = '');
+                otpSection.style.display = 'none';
+            } else {
+                showNotification('Please enter the complete 6-digit code', 'error');
+            }
+        }
+        
+        function resendOTP() {
+            showNotification('New verification code sent', 'info');
+        }
+        
+        function logout() {
+            if (confirm('Are you sure you want to logout?')) {
+                showAuthModal();
+            }
+        }
+        
+        // 5. Vehicle Details Validation
+        function validateRegNumber() {
+            const regInput = document.getElementById('regNumber');
+            const regError = document.getElementById('regError');
+            const regPattern = /^[A-Z]{2}\s?\d{3}[- ]?\d{3}$/i;
+            
+            if (regInput.value && !regPattern.test(regInput.value)) {
+                regError.style.display = 'block';
+                return false;
+            } else {
+                regError.style.display = 'none';
+                return true;
+            }
+        }
+        
+        function captureVehicleDetails() {
+            if (!validateRegNumber()) {
+                showNotification('Please enter a valid registration number', 'error');
+                return;
+            }
+            
+            const vehicleData = {
+                regNumber: document.getElementById('regNumber').value,
+                vin: document.getElementById('vinNumber').value,
+                make: document.getElementById('vehicleMake').value,
+                model: document.getElementById('vehicleModel').value,
+                year: document.getElementById('manufactureYear').value,
+                mileage: document.getElementById('vehicleMileage').value,
+                fault: document.getElementById('vehicleFault').value
+            };
+            
+            // Simulate saving
+            showNotification('Vehicle details saved successfully', 'success');
+            
+            // Auto-populate quotation section
+            if (vehicleData.regNumber && vehicleData.make) {
+                document.getElementById('quotationSection').scrollIntoView({behavior: 'smooth'});
+            }
+        }
+        
+        // 6. Service Quotation
+        function addQuotationItem() {
+            const description = document.getElementById('newItem').value;
+            const quantity = document.getElementById('newQuantity').value;
+            const price = document.getElementById('newPrice').value;
+            
+            if (!description || !price) {
+                showNotification('Please enter description and price', 'error');
+                return;
+            }
+            
+            // In real app, this would add to the list
+            showNotification(`Item added: ${description}`, 'success');
+            
+            // Clear inputs
+            document.getElementById('newItem').value = '';
+            document.getElementById('newQuantity').value = '1';
+            document.getElementById('newPrice').value = '';
+        }
+        
+        function removeItem(index) {
+            // In real app, this would remove from array
+            showNotification('Item removed from quotation', 'info');
+        }
+        
+        function saveDraft() {
+            showNotification('Quotation saved as draft', 'success');
+        }
+        
+        function sendToCustomer() {
+            showNotification('Quotation sent to customer for approval', 'success');
+        }
+        
+        function submitToDigitalHub() {
+            // Trigger authentication for submission
+            showAuthModal();
+            
+            // After auth, submit
+            setTimeout(() => {
+                showNotification('Quotation submitted to Digital Hub for validation', 'success');
+                
+                // Show validation progress
+                document.getElementById('specializationSection').scrollIntoView({behavior: 'smooth'});
+            }, 1000);
+        }
+        
+        function generateQuotePDF() {
+            showNotification('Generating PDF quotation...', 'info');
+            
+            // Simulate PDF generation
+            setTimeout(() => {
+                showNotification('PDF quotation ready for download', 'success');
+                
+                // Create download link
+                const link = document.createElement('a');
+                link.href = '#';
+                link.download = 'Quotation-' + new Date().toISOString().slice(0,10) + '.pdf';
+                link.click();
             }, 1500);
         }
         
-        // Show Validation Logic
-        function showValidationLogic(claimId) {
-            const logicContent = document.getElementById('logicContent');
-            logicContent.innerHTML = `
-                <div style="margin-bottom: 20px;">
-                    <h3>Claim: ${claimId}</h3>
-                    <p><strong>Status:</strong> Approved</p>
-                </div>
+        // SLA Timer
+        function startSLATimer() {
+            let minutes = 14;
+            let seconds = 32;
+            const timerElement = document.getElementById('slaTimer');
+            
+            const timer = setInterval(() => {
+                if (seconds === 0) {
+                    if (minutes === 0) {
+                        timerElement.innerHTML = "EXPIRED";
+                        timerElement.style.color = "#e74c3c";
+                        clearInterval(timer);
+                        return;
+                    } else {
+                        minutes--;
+                        seconds = 59;
+                    }
+                } else {
+                    seconds--;
+                }
                 
-                <div style="background-color: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
-                    <h4>Approval Logic:</h4>
-                    <ul>
-                        <li>✅ Job Card #JC-789 matches customer vehicle VIN</li>
-                        <li>✅ Part #P-5678 verified as OEM component</li>
-                        <li>✅ Labour rate R450/hr within contract limit (R500/hr)</li>
-                        <li>✅ Parts markup 25% within allowed 30% margin</li>
-                        <li>✅ Total amount R4,850 below repair category limit (R6,000)</li>
-                    </ul>
-                </div>
+                timerElement.innerHTML = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
                 
-                <div style="background-color: #e8f4fd; padding: 15px; border-radius: 8px;">
-                    <h4>Audit Trail:</h4>
-                    <p><strong>Processed:</strong> 2023-11-15 14:32:45</p>
-                    <p><strong>Approval Time:</strong> 4 minutes 22 seconds</p>
-                    <p><strong>System Validator:</strong> Auto-Validation Engine v2.3</p>
+                // Change color when under 5 minutes
+                if (minutes < 5) {
+                    timerElement.style.color = "#e74c3c";
+                } else if (minutes < 10) {
+                    timerElement.style.color = "#f39c12";
+                }
+            }, 1000);
+        }
+        
+        // Notification System
+        function showNotification(message, type = 'info') {
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.innerHTML = `
+                <div style="position: fixed; top: 20px; right: 20px; 
+                           background-color: ${type === 'success' ? '#27ae60' : 
+                                            type === 'error' ? '#e74c3c' : 
+                                            type === 'warning' ? '#f39c12' : '#3498db'};
+                           color: white; padding: 15px 20px; border-radius: 5px;
+                           box-shadow: 0 4px 12px rgba(0,0,0,0.15); z-index: 10000;
+                           display: flex; align-items: center; gap: 10px;">
+                    <i class="fas fa-${type === 'success' ? 'check-circle' : 
+                                      type === 'error' ? 'exclamation-circle' : 
+                                      type === 'warning' ? 'exclamation-triangle' : 'info-circle'}"></i>
+                    <span>${message}</span>
                 </div>
             `;
             
-            logicModal.style.display = 'flex';
-        }
-        
-        // Show Dispute Resolution
-        function showDisputeResolution(claimId) {
-            const logicContent = document.getElementById('logicContent');
-            logicContent.innerHTML = `
-                <div style="margin-bottom: 20px;">
-                    <h3>Dispute Resolution: ${claimId}</h3>
-                    <p><strong>Status:</strong> Queried - Requires Action</p>
-                </div>
-                
-                <div style="background-color: #fff3cd; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
-                    <h4>Query Details:</h4>
-                    <p><strong>Issue:</strong> Part #P-8910 not found in approved parts catalog</p>
-                    <p><strong>Suggested Action:</strong> Provide OEM documentation or substitute with approved alternative</p>
-                </div>
-                
-                <div style="margin-bottom: 15px;">
-                    <h4>Resolution Options:</h4>
-                    <div style="display: flex; gap: 10px; margin-top: 10px;">
-                        <button class="btn" style="background-color: #28a745; color: white;" onclick="resolveDispute('${claimId}', 'provide_docs')">
-                            Upload OEM Documentation
-                        </button>
-                        <button class="btn" style="background-color: #17a2b8; color: white;" onclick="resolveDispute('${claimId}', 'substitute')">
-                            Substitute Part
-                        </button>
-                        <button class="btn" style="background-color: #6c757d; color: white;" onclick="closeModal()">
-                            Cancel
-                        </button>
-                    </div>
-                </div>
-            `;
+            document.body.appendChild(notification);
             
-            logicModal.style.display = 'flex';
-        }
-        
-        // Show Tiered Routing
-        function showTieredRouting(claimId) {
-            const logicContent = document.getElementById('logicContent');
-            logicContent.innerHTML = `
-                <div style="margin-bottom: 20px;">
-                    <h3>Tiered Routing: ${claimId}</h3>
-                    <p><strong>Status:</strong> Escalated to Senior Technical Staff</p>
-                </div>
-                
-                <div style="background-color: #e8f4fd; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
-                    <h4>Escalation Reason:</h4>
-                    <p>Complex mechanical issue requiring specialist approval</p>
-                    <p>Claim amount exceeds standard repair threshold</p>
-                </div>
-                
-                <div style="background-color: #f8f9fa; padding: 15px; border-radius: 8px;">
-                    <h4>Current Status:</h4>
-                    <p><strong>Assigned to:</strong> Senior Technician - James Wilson</p>
-                    <p><strong>Estimated Review Time:</strong> 2-4 business hours</p>
-                    <p><strong>Contact:</strong> jwilson@digitalhub.co.za</p>
-                </div>
-            `;
-            
-            logicModal.style.display = 'flex';
-        }
-        
-        // Resolve Dispute
-        function resolveDispute(claimId, action) {
-            alert(`Action "${action}" submitted for claim ${claimId}. The claim will be re-evaluated within 15 minutes.`);
-            closeModal();
-        }
-        
-        // View All Claims
-        function viewAllClaims() {
-            alert('Redirecting to full claims dashboard...');
-            // In a real app, this would navigate to a detailed claims page
+            // Remove after 5 seconds
+            setTimeout(() => {
+                notification.remove();
+            }, 5000);
         }
         
         // Close Modal
         function closeModal() {
-            uploadModal.style.display = 'none';
-            logicModal.style.display = 'none';
+            authModal.style.display = 'none';
+            ficaModal.style.display = 'none';
         }
-        
-        // Close modal when clicking outside
-        window.addEventListener('click', function(event) {
-            if (event.target === uploadModal || event.target === logicModal) {
-                closeModal();
-            }
-        });
         
         // Navigation
         document.querySelectorAll('.nav-link').forEach(link => {
@@ -1085,13 +1525,18 @@
             });
         });
         
-        // Initialize with a demo validation
-        setTimeout(() => {
-            // Auto-simulate a successful validation for demo purposes
-            if (window.location.hash === '#demo') {
-                simulateValidation();
+        // Close modal when clicking outside
+        window.addEventListener('click', function(event) {
+            if (event.target === authModal || event.target === ficaModal) {
+                closeModal();
             }
-        }, 1000);
+        });
+        
+        // Demo mode
+        if (window.location.hash === '#demo') {
+            console.log('Demo mode active - All features enabled');
+            showNotification('Demo Mode: All features are interactive', 'info');
+        }
     </script>
 </body>
 </html>
